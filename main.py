@@ -237,7 +237,7 @@ class MainHandler(tornado.web.RequestHandler):
                 container_ip=defaults.container_ip,
                 container_port=port,
                 container_user=user,
-                host_network=os.environ.get('HOST_NETWORK', False),
+                host_network=bool(os.environ.get('HOST_NETWORK', False)),
                 host_directories=None,
                 extra_hosts=[]
             )
@@ -465,7 +465,7 @@ if __name__ == "__main__":
         container_ip=container_ip,
         container_port='8888',
         container_user='jovyan',
-        host_network=os.environ.get('HOST_NETWORK', False),
+        host_network=bool(os.environ.get('HOST_NETWORK', False)),
         host_directories=None,
         extra_hosts=[]
     )
